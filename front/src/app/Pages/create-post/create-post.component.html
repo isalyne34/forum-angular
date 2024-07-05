@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="form-container">
+    <h2>
+      {{ isEdit ? "Update Post " + this.subject.title : "Create new post" }}
+    </h2>
+    <form class="form" (submit)="addPost()" #form="ngForm">
+      <mat-form-field class="full-width">
+        <mat-label>Title</mat-label>
+        <input
+          matInputs
+          placeholder="Title"
+          class="title"
+          [(ngModel)]="post.title"
+          name="title"
+          required
+        />
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <mat-label>Description</mat-label>
+        <input
+          matInputs
+          class="description"
+          placeholder="Description"
+          [(ngModel)]="post.description"
+          name="description"
+          required
+        />
+      </mat-form-field>
+
+      <button mat-raised-button class="button" type="submit">
+        {{ isEdit ? "Update" : "Create" }}
+      </button>
+      <button mat-raised-button class="button" (click)="back()" color="warn">
+        Back
+      </button>
+    </form>
+  </div>
+</div>

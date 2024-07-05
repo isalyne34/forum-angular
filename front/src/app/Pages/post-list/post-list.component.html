@@ -1,0 +1,54 @@
+<mat-toolbar>
+  <h1 class="titre">Subject : {{ this.subject.title }}</h1>
+</mat-toolbar>
+<button mat-raised-button class="button" (click)="addPost()">
+  Nouveau Post
+</button>
+<button mat-raised-button class="button" color="warn" (click)="back()">
+  Retour
+</button>
+<mat-grid-list cols="3" rowHeight="2:1">
+  <mat-grid-tile class="post-group" *ngFor="let element of posts">
+    <mat-card class="post" appearance="outlined">
+      <mat-card-header>
+        <mat-card-title class="title">{{ element.title }}</mat-card-title>
+        <mat-card-subtitle class="subtitle">
+          <div class="div">
+            <mat-icon>person</mat-icon>
+            <span>{{ this.usernameMapping.get(element.created_by) }}</span>
+          </div>
+          <div class="div">
+            <mat-icon>calendar_month</mat-icon>
+            <span>{{ element.created | date }}</span>
+          </div>
+        </mat-card-subtitle>
+      </mat-card-header>
+
+      <mat-card-content>
+        <p>{{ element.description }}</p>
+      </mat-card-content>
+
+      <mat-card-footer *ngIf="isAdmin(element)" class="footer">
+        <button
+          mat-raised-button
+          extended
+          color="warn"
+          class="delete-button"
+          (click)="deletePost(element.id)"
+        >
+          <mat-icon>delete</mat-icon>
+          Delete Post
+        </button>
+
+        <button
+          mat-raised-button
+          class="edit-button"
+          (click)="updatePost(element.id)"
+        >
+          <mat-icon>edit</mat-icon>
+          Edit Post
+        </button>
+      </mat-card-footer>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>

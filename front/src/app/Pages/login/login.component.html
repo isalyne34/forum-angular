@@ -1,0 +1,57 @@
+<!-- <div class="container col-4 offset-4">
+  <div class="col-8">
+    <input
+      type="text"
+      class="m-1 form-control"
+      placeholder="Email adress"
+      [(ngModel)]="emailAddress"
+    />
+    <input
+      type="password"
+      class="m-1 form-control"
+      placeholder="Password"
+      [(ngModel)]="password"
+    />
+  </div>
+  <div class="col-2">
+    <button
+      mat-raised-button
+      type="button"
+      class="btn btn-sm btn-outline-success m-1"
+      [disabled]="emailAddress == '' || password == ''"
+      (click)="login()"
+    >
+      Login
+    </button>
+  </div>
+</div> -->
+
+<div class="container">
+  <h1>Login</h1>
+  <mat-form-field>
+    <mat-label>Enter your email</mat-label>
+    <input
+      type="text"
+      class="m-1 form-control"
+      placeholder="Email adress"
+      [(ngModel)]="emailAddress"
+    />
+
+    <mat-label>Enter your password</mat-label>
+    <input
+      type="password"
+      class="m-1 form-control"
+      placeholder="Password"
+      [(ngModel)]="password"
+    />
+  </mat-form-field>
+  <button
+    mat-raised-button
+    type="button"
+    class="btn btn-sm btn-outline-success m-1"
+    [disabled]="emailAddress == '' || password == ''"
+    (click)="login()"
+  >
+    Login
+  </button>
+</div>

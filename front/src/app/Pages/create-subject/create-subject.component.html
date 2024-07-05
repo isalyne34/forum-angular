@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="form-container">
+    <h2>
+      {{
+        isEdit ? "Update subject " + this.originalName : "Create new subject"
+      }}
+    </h2>
+    <form class="form" (submit)="addSubject()" #form="ngForm">
+      <mat-form-field class="full-width">
+        <input
+          matInputs
+          class="title"
+          placeholder="Title"
+          [(ngModel)]="title"
+          name="title"
+          required
+        />
+      </mat-form-field>
+
+      <button class="button" mat-raised-button type="submit">
+        {{ isEdit ? "Update" : "Create" }}
+      </button>
+      <button mat-raised-button class="button" color="warn" (click)="back()">
+        Back
+      </button>
+    </form>
+  </div>
+</div>

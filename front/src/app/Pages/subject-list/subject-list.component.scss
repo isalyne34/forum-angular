@@ -1,0 +1,38 @@
+.header {
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  background-color: #3f51b5;
+  color: white;
+  font-weight: bold;
+}
+
+.table-container-wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+  border-radius: 5px;
+
+}
+
+.odd-row {
+  background-color: #ebe5e5;
+}
+
+.even-row {
+  background-color: #ffffff;
+}
+
+.table {
+  padding: 10px;
+
+  width: 90%;
+}
+
+.button {
+  margin: 10px;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
