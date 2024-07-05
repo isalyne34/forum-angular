@@ -54,7 +54,6 @@ export class PostListComponent {
     this.activatedRoute.paramMap.subscribe((params) => {
       this.subjectId = params.get('id') ?? '';
     });
-    //recuperer le sujet dans lequel on est
     this.subjectService
       .getSubject(this.subjectId)
       .then((subject: SubjectModel) => {
@@ -76,12 +75,10 @@ export class PostListComponent {
     this.posts.forEach((post) => {
       this.getUserName(post.created_by).then((username) => {
         this.usernameMapping.set(post.created_by, username);
-        console.log('usernameMapping', this.usernameMapping);
       });
     });
   }
 
-  //recuperer le nom d'un user a partir de son id
   getUserName(userId: string): Promise<string> {
     return this.postService.creatorName(userId);
   }

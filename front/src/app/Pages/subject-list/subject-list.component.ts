@@ -63,7 +63,6 @@ export class SubjectListComponent {
       }
     }
     this.subjects = subjects;
-    console.log('subjects', this.subjects);
     this.dataSource = new MatTableDataSource(this.subjects);
     this.length = this.subjects.length;
     this.dataSource.paginator = this.paginator;

@@ -44,7 +44,6 @@ export class SubjectService {
     if (!this.pb.authStore?.model) {
       return false;
     }
-    console.log('author', subject.created_by, this.pb.authStore?.model['id']);
     return subject.created_by === this.pb.authStore?.model['id'];
   }
 
@@ -52,7 +51,6 @@ export class SubjectService {
     const posts = (await this.pb.collection('post').getFullList()).filter(
       (post: any) => post.subject === subjectId
     );
-    console.log('posts', posts);
     return posts.length;
   }
 
@@ -65,7 +63,6 @@ export class SubjectService {
         return new Date(b.created).getTime() - new Date(a.created).getTime();
       });
 
-    console.log('posts', posts);
     return posts.length ? posts[0].created : null;
   }
 }
